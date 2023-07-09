@@ -9,4 +9,14 @@ import "../styles/index.css";
 import Home from "./component/home.jsx";
 
 //render your react application
-ReactDOM.render(<Home />, document.querySelector("#app"));
+let seconds = 0;
+setInterval(function () {
+    const boxSix = Math.floor(seconds / 10000) % 10;
+    const boxFive = Math.floor(seconds / 10000) % 10;
+    const boxFour = Math.floor(seconds / 1000) % 10;
+    const boxThree = Math.floor(seconds / 100) % 10;
+    const boxTwo = Math.floor(seconds / 10) % 10;
+    const boxOne = Math.floor(seconds / 1) % 10;
+    seconds++;
+    ReactDOM.render(<Home digitOne={boxOne} digitTwo={boxTwo} digitThree={boxThree} digitFour={boxFour} digitFive={boxFive} digitSix={boxSix} />, document.querySelector("#app"));
+}, 1000); 
